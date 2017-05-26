@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>值班调换管理 - 值班啦 - 管理系统</title>
+    <link rel='stylesheet' href='../../css/admin/index.css' />
+    <link rel='stylesheet' href='../../css/admin/datedropper.min.css' />
+    <link rel="stylesheet" href="../../css/admin/my-style.css" />
+</head>
+<body>
+    <% include header.ejs %>
+    <div class="bodyBox">
+        <form id="addjustForm" name="addjustForm" method="post" action="" class="addjustForm">
+            <input type="text" name="startTime" id="startTime" placeholder="填写调换时间" class="startTime" />
+            <select name="startName" id="startName" class="selectName">
+                <option value="1111111">选择值班人</option>
+                <% if (usersData.length) { %>
+                <% usersData.forEach(function(list) { %>
+                <option value="<%= list.userName %>"><%= list.userName %></option>
+                <% }) %>
+                <% } %>
+            </select>
+            <select name="endName" id="endName" class="selectName">
+                <option value="1111111">选择被代人</option>
+                <% if (usersData.length) { %>
+                <% usersData.forEach(function(list) { %>
+                <option value="<%= list.userName %>"><%= list.userName %></option>
+                <% }) %>
+                <% } %>
+            </select>
+            <input type="submit" name="userBtn" id="userBtn" value="添加" class="userBtn" />
+        </form>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="justList justHead">
+            <tr>
+                <th class="w100">ID</th>
+                <th class="w150">调换时间</th>
+                <th>值班信息</th>
+            </tr>
+        </table>
+        <div class="justBox">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="justList">
+                <% if (noteData.length) { %>
+                <% idx = 0 %>
+                <% noteData.forEach(function(list) { %>
+                <% idx++ %>
+                <tr data-id="<%= list._id %>" class="operation">
+                    <td class="w100"><%= idx %></td>
+                    <td class="w150"><%= list.startTime %></td>
+                    <td class="u"><%= list.startName %> 代 <%= list.endName %></td>
+                </tr>
+                <% }) %>
+                <% } %>
+            </table>
+        </div>
+    </div>
+    <div id="selectMenu" class="selectMenu">
+        <h2>删除该条记录</h2>
+        <div><span>是</span><span>否</span></div>
+    </div>
+    <script type="text/javascript" src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/admin/datedropper.min.js"></script>
+    <script src="../../js/admin/adjust.js"></script>
+</body>
+</html>

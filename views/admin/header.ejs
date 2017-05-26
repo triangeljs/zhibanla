@@ -1,0 +1,10 @@
+<div class="headBox">
+    <h1><img src="../../images/admin/logo.png" alt="值班啦" /></h1>
+    <ul class="mainBav">
+        <li <%= targetTitle == '首页' ? 'class=cur' : null %>><a href="../index/">首页</a></li>
+        <li <%= targetTitle == '值班人员管理' ? 'class=cur' : null %>><a href="../users/">值班人员管理</a></li>
+        <li <%= targetTitle == '添加节假日和特殊值班' ? 'class=cur' : null %>><a href="../addTime/">添加节假日和特殊值班</a></li>
+        <li <%= targetTitle == '值班调换' ? 'class=cur' : null %>><a href="../adjust/">值班调换</a></li>
+    </ul>
+    <div class="userBoxs"><%- login %></div>
+</div>

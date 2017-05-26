@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>值班啦</title>
+		<link rel='stylesheet' href='css/content/index.css' />
+	</head>
+	<body>
+		<div class="headBox">
+			<h1 class="logo"><img src="images/content/logo.png" /></h1>
+			<div class="userBox"><%- login %></div>
+		</div>
+		<div class="bodyBox">
+			<div class="leftBox">
+				<h2>值班人员</h2>
+				<% if (users.length) { %>
+				<ul>
+					<% users.forEach(function(list){ %>
+					<li><%= list.userName %></li>
+					<% }) %>
+				</ul>
+				<% } %>
+			</div>
+			<div class="rightBox">
+				<div class="toolBox">
+					<div class="previousBtn"></div>
+					<div class="nextBtn"></div>
+					<div class="selectBox">
+						<h2>&nbsp;</h2>
+						<div class="peekPopup">
+							<ul>
+								<li>一月</li>
+								<li>二月</li>
+								<li>三月</li>
+								<li>四月</li>
+								<li>五月</li>
+								<li>六月</li>
+								<li>七月</li>
+								<li>八月</li>
+								<li>九月</li>
+								<li>十月</li>
+								<li>十一月</li>
+								<li>十二月</li>
+							</ul>
+							<span class="peekShadowAll"></span>
+						</div>
+					</div>
+					<div class="backBtn">返回今天</div>
+				</div>
+				<div id="calendarBox" class="calendarBox">
+					<ul class="calendarTitle">
+						<li>周一</li>
+						<li>周二</li>
+						<li>周三</li>
+						<li>周四</li>
+						<li>周五</li>
+						<li>周六</li>
+						<li>周日</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    	<script type="text/javascript" src="js/content/index.js"></script>
+	</body>
+</html>

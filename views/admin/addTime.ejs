@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>节假日和特殊值班管理 - 值班啦 - 管理系统</title>
+    <link rel='stylesheet' href='../../css/admin/index.css' />
+    <link rel='stylesheet' href='../../css/admin/datedropper.min.css' />
+    <link rel="stylesheet" href="../../css/admin/my-style.css" />
+</head>
+<body>
+    <% include header.ejs %>
+    <div class="bodyBox">
+        <form id="addholidayForm" name="addholidayForm" method="post" action="" class="addholidayForm">
+            <input type="text" name="holidayTime" id="holidayTime" placeholder="填写时间" class="holidayTime" />
+            <input type="text" name="holidayName" id="holidayName" placeholder="填写名称" class="holidayName" />
+            <input type="submit" name="userBtn" id="userBtn" value="添加" class="userBtn" />
+        </form>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="holidayList holidayHead">
+            <tr>
+                <th class="w100">ID</th>
+                <th class="w150">节假日时间</th>
+                <th class="w150">节假日名称</th>
+                <th class="w150">自动排班</th>
+                <th>值班人员</th>
+            </tr>
+        </table>
+        <div class="holidayBox">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="holidayList">
+                <% if (holidayData.length) { %>
+                <% idx = 0 %>
+                <% holidayData.forEach(function(list){ %>
+                <% idx++ %>
+                <tr data-id="<%= list._id %>" class="operation">
+                    <td class="w100"><%= idx %></td>
+                    <td class="w150"><%= list.holidayTime %></td>
+                    <td class="w150"><%= list.holidayName %></td>
+                    <td class="w150"><%= list.auto %></td>
+                    <td class="u">
+                        <% for(var i=0;i<list.holidayUsers.length;i++) { %>
+                            <span><%= list.holidayUsers[i] %></span>
+                        <% } %>
+                    </td>
+                </tr>
+                <% }) %>
+                <% } %>
+            </table>
+        </div>
+    </div>
+    <div id="selectMenu" class="selectMenu">
+        <h2>添加值班人员</h2>
+        <% if (usersData.length) { %>
+        <ul>
+            <% usersData.forEach(function(list) { %>
+            <% if(list.jobs == '设计') { %>
+            <li><%= list.userName %></li>
+            <% } %>
+            <% }) %>
+        </ul>
+        <ul>
+            <% usersData.forEach(function(list) { %>
+            <% if(list.jobs == '制作') { %>
+            <li><%= list.userName %></li>
+            <% } %>
+            <% }) %>
+        </ul>
+        <% } %>
+        <h2>是否自动排班</h2>
+        <p><span>是</span><span>否</span></p>
+        <h2>删除该条记录</h2>
+        <div><span>是</span><span>否</span></div>
+    </div>
+    <script type="text/javascript" src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/admin/datedropper.min.js"></script>
+    <script type="text/javascript" src="../../js/admin/addTime.js"></script>
+</body>
+</html>
