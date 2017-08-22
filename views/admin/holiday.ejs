@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ch">
+
+<head>
+    <meta charset="UTF-8">
+    <title><%= targetTitle %> - 值班啦 - 管理系统</title>
+    <link rel="icon" href="../../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
+    <link rel='stylesheet' href='../../css/admin/layout.css' />
+    <link rel='stylesheet' href='../../css/admin/holiday.css' />
+    <link rel='stylesheet' href='../../css/admin/datedropper.min.css' />
+    <link rel="stylesheet" href="../../css/admin/my-style.css" /> 
+</head>
+
+<body>
+    <% include header.ejs %>
+    <div class="wrap">
+        <div class="sidebar">
+            <% include sidebar.ejs %>
+        </div>
+        <div class="contentWrap">
+            <form id="holidayForm" name="holidayForm" method="post" action="" class="holidayForm">
+                <input type="text" name="holidayDate" id="holidayDate" required="required" placeholder="法定假日日期" class="holidayDate" />
+                <input type="text" name="holidayName" id="holidayName" required="required" placeholder="法定假日名称" class="holidayName" />
+                <input type="submit" name="holidayBtn" id="holidayBtn" value="添 加" class="holidayBtn" />
+            </form>
+            <div class="holidayBox">
+                <ul class="holidayList">
+                    <li>
+                        <div class="holidayID">ID</div>
+                        <div>法定假日名称</div>
+                        <div>法定假日日期</div>
+                        <div>是否排班</div>
+                        <div>操作</div>
+                    </li>
+                    <% if (data.length) { %>
+                    <% idx = 0 %>
+                    <% data.forEach(function(list){ %>
+                    <% idx++ %>
+                    <li data-id="<%= list._id %>">
+                        <div class="holidayID"><%= idx %></div>
+                        <div class="holiday_name" contenteditable="true"><%= list.holidayName %></div>
+                        <div class="holiday_time"><%= list.holidayDate %></div>
+                        <div class="holiday_lock">
+                            <h2>
+                            <% if(list.lock == "false") { %>
+                                <%= "是" %>
+                            <% } else { %>
+                                <%= "否" %>
+                            <% } %>
+                            </h2>
+                        </div>
+                        <div><span title="删除" class="holidayDel"></span></div>
+                    </li>
+                    <% }) %>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="../../js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../../js/admin/datedropper.min.js"></script>
+    <script type="text/javascript" src="../../js/admin/holiday.js"></script>
+</body>
+
+</html>

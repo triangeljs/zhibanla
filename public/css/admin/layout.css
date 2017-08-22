@@ -1,0 +1,33 @@
+@charset "utf-8";
+* { margin: 0px; padding: 0px; }
+html, body { height: 100%; overflow: hidden; }
+body { font-family:  "Microsoft YaHei", "微软雅黑", "SimSun", "宋体"; font-size: 12px; color: #000; line-height: 20px; background: #F6F7Fb; display: flex; flex-direction: column; }
+a { color: #000; text-decoration: none; }
+ol, ul, li { list-style-type: none; }
+img { border: none; vertical-align: top; }
+input, select { font-family:  "Microsoft YaHei", "微软雅黑", "SimSun", "宋体"; outline: none; }
+
+.headBox { background-color: #FFF; box-shadow: 0px 3px 3px rgba(240,241,245,.7); border-bottom: 1px solid #EFF0F3; box-sizing: border-box; display: flex; height: 60px; align-items: center; }
+.headBox h1 { padding-left: 10px; flex: 1; }
+.headBox .userBoxs { font-size: 14px; text-align: right; padding-right: 30px; flex: 1; }
+.headBox .logoutBtn { color: #535353; background-color: #FFF; line-height: 28px; border: 1px solid #E5E5E5; border-radius: 3px; text-align: center; display: inline-block; width: 65px; margin-left: 20px; }
+.headBox .logoutBtn:hover { background-color: rgba(220,220,220,.5); }
+
+.wrap { display: flex; flex: 1; }
+.sidebar { background-color: #555; width: 150px; }
+.contentWrap { flex: 1; display: flex; overflow-y: auto; }
+
+.sidebarList { margin-top: 20px; }
+.sidebarList li { font-size: 14px; color: #FFF; line-height: 50px; text-indent: 65px; position: relative; }
+.sidebarList li a { color: #FFF; }
+.sidebarList .cur { background-color: #3D3D3D; box-sizing: border-box; border-left: 3px solid #4680FE; text-indent: 62px; }
+.sidebarList i { background: url(../../images/admin/ico.png) no-repeat center top; width: 19px; height: 13px; position: absolute; left: 20px; top: 19px; }
+.sidebarList .sIco_1 { background-position-y: 0; }
+.sidebarList .sIco_2 { background-position-y: -23px; }
+.sidebarList .sIco_3 { background-position-y: -45px; }
+.sidebarList .sIco_4 { background-position-y: -71px; height: 16px; }
+.sidebarList .sIco_5 { background-position-y: -97px; height: 15px; }
+
+.createRotaBtn { font-size: 14px; color: #FFF; line-height: 40px; background-color: rgba(71,143,241,.8); border-radius: 5px; text-align: center; width: 110px; position: absolute; left: 20px; bottom: 20px; cursor: pointer; }
+.createRotaBtn a { color: #FFF; display: block; }
+.createRotaBtn:hover { background-color: rgba(71,143,241,1); }

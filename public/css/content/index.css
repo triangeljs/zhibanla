@@ -1,0 +1,75 @@
+@charset "utf-8";
+* { margin: 0px; padding: 0px; }
+html, body { height: 100%; overflow: hidden; }
+body { font-family:  "Microsoft YaHei", "微软雅黑", "SimSun", "宋体"; font-size: 12px; color: #000; line-height: 20px; background: #FFF; display: flex; flex-direction: column; }
+a { color: #000; text-decoration: none; }
+a:hover { text-decoration: underline; }
+ol, ul, li { list-style-type: none; }
+img { border: none; vertical-align: top; }
+input, select { outline: none; }
+
+.login { background-color: #FFF; width: 100%; height: 100%; position: absolute; left: 0; top: 0; z-index: 999; }
+.login img { margin: -300px 0 0 -300px; position: absolute; left: 50%; top: 50%; }
+
+.headBox { border-bottom: 1px solid #EFF0F3; box-shadow: 0px 3px 3px rgba(0,0,0,.03); clear: both; width: 100%; height: 60px; overflow: hidden; position: relative; z-index: 99; }
+.logo { float: left; margin: 10px 0 0 15px; }
+.timeBox { font-size: 16px; line-height: 60px; float: right; margin: 0 15px 0 0; }
+.timeBox div { display: inline-block; margin-left: 30px; }
+.timeBox .t1 { border-radius: 5px; }
+.timeBox .t1 span { color: #555; border: 1px solid #E5E5E5; padding: 3px 30px; cursor: pointer; }
+.timeBox .t1 span:first-child { border-radius: 3px 0 0 3px; }
+.timeBox .t1 span:last-child { border-left: none; border-radius: 0 3px 3px 0; }
+.timeBox .t1 .cur { color: #FFF; background-color: #999; border: 1px solid #999; box-shadow: 0 0 2px rgba(0,0,0,.3) inset; }
+.timeBox .t2 span { color: #555; border: 1px solid #E5E5E5; border-radius: 3px; padding: 3px 15px; cursor: pointer; }
+.timeBox .arrLeft { border-radius: 3px; margin-right: -1px; }
+.timeBox .arrRight { border-radius: 3px; margin-left: -1px; }
+#monthBtn.rm span { color: #CCC; cursor: auto; }
+
+.yearBox { background-color: #F6F7FB; display: flex; flex: 1; flex-flow: row; display: none; }
+.sideBar { font-size: 14px; line-height: 40px; color: #FFF; background-color: #555; text-align: center; width: 150px; }
+.sideBar h2 { font-weight: normal; font-size: 14px; border-bottom: 1px solid #2A2E37; padding-top: 30px; display: none; }
+.sideBar ul { padding-top: 15px; }
+.sideBar li span { line-height: 30px; text-align: left; text-indent: 40px; display: block; padding: 5px 10px; cursor: pointer; }
+.sideBar .cur { line-height: 30px; background-color: #3D3D3D; border-left: 3px solid #4680FE; text-indent: 37px; display: block; }
+.yearWrap { background-color: #FFF; border: 1px solid #E5E5E5; border-radius: 3px; overflow: hidden; margin: 15px; padding: 0 20px; flex: 1; display: flex; flex-wrap: wrap; }
+.yearUnit { border-bottom: 1px dotted #D6D6D6; padding-bottom: 1%; display: flex; flex-wrap: wrap; justify-content: space-around; align-items: flex-start; height: 30%; }
+.yearUnit:last-child { border-bottom: none; padding-bottom: 0; }
+.yItem { border: 20px solid #FFF; box-sizing: border-box; display: flex; width: 25%; flex-direction: column; }
+.yTitle { font-weight: normal; font-size: 18px; color: #FB607F; line-height: initial; flex: 1; }
+.yList { flex: 8; display: flex; flex-direction: column; flex-wrap: wrap; }
+.yList div { display: flex; flex: 1; }
+.yList div span { line-height: initial; text-align: center; border-left: 1px solid #FFF; border-top: 1px solid #FFF; display: flex; flex: 1; flex-direction: column; justify-content: center; }
+.yList div:first-child { border-bottom: 1px solid #E5E5E5; flex: none; height: 30px; margin-bottom: 5px; }
+.yList div:first-child span { line-height: 30px; }
+.yList .cur { background-color: rgba(218,230,255,.6); }
+.yList .yCur { color: #FFF; background-color: #FB607F; }
+.yList .dayCur { position: relative; }
+.yList .dayCur::before { content: ""; position: absolute; left: -10px; top: -10px; z-index: 1; border-width: 10px; border-style: solid; border-color:#FB607F transparent transparent transparent; transform: rotate(135deg); animation: myfirst .2s; animation-iteration-count: infinite; animation-direction: alternate; }
+
+@keyframes myfirst {
+    from { border-color:#FFF transparent transparent transparent; }
+    to { border-color:#FB607F transparent transparent transparent; }
+}
+
+.monthBox { background-color: #F6F7FB; width: 100%; overflow: hidden; display: flex; flex: 1; }
+.monthUnit { box-sizing: border-box; display: flex; padding: 0 15px 20px 15px; flex: 1; flex-direction: column; }
+.monthNav { color: #555; line-height: 30px; flex: 1; display: flex; }
+.monthNav span { box-sizing: border-box; display: flex; padding-left: 10px; flex: 1; flex-direction: column; justify-content: center; }
+.monthList { flex: 4; display: flex; justify-content: space-between; }
+.monthUnit .monthList:nth-child(2) div:first-child { border-radius: 3px 0 0 0; overflow: hidden; }
+.monthUnit .monthList:nth-child(2) div:last-child { border-radius: 0 3px 0 0; overflow: hidden; }
+.monthUnit .monthList:last-child div:first-child { border-radius: 0 0 0 3px; overflow: hidden; }
+.monthUnit .monthList:last-child div:last-child { border-radius: 0 0 3px 0; overflow: hidden; }
+.monthInfo { background-color: #FFF; border: 1px solid #E5E5E5; box-sizing: border-box; display: flex; overflow: hidden; margin: -1px -1px 0 0; padding: 10px; flex: 1; flex-direction: column; }
+.monthInfo .title { flex: 1; display: flex; justify-content: space-between; position: relative; }
+.monthInfo .title span { font-size: 18px; color: #BBB; }
+.monthInfo .title h2 { font-weight: normal; font-size: 12px; color: #BBB; }
+.monthInfo .users { background-color: #DAE6FF; border-radius: 5px; padding: 5px 0; flex: 3; }
+.monthInfo .users li { font-size: 16px; line-height: 150%; box-sizing: border-box; padding-left: 10px; }
+.monthInfo .users li span { color: rgba(0,0,0,.5); text-decoration: line-through; }
+.zhiban .title span { color: #555; }
+.cur .title span { font-weight: bold; color: #FB607F; position: relative; z-index: 2; }
+.cur .title::before { content: ""; position: absolute; left: -20px; top: -20px; z-index: 1; border-width: 10px; border-style: solid; border-color:#FB607F transparent transparent transparent; transform: rotate(135deg); animation: myfirst .2s; animation-iteration-count: infinite; animation-direction: alternate; }
+.cur .users { background-color: #FB607F; }
+.cur .users li { color: #FFF; }
+.cur .users li span { color: rgba(255,255,255,.5); }

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title><%= targetTitle %> - 值班啦 - 管理系统</title>
+    <link rel="icon" href="../../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
+    <link rel='stylesheet' href='../../css/admin/layout.css' />
+    <link rel='stylesheet' href='../../css/admin/special.css' />
+    <link rel='stylesheet' href='../../css/admin/datedropper.min.css' />
+    <link rel="stylesheet" href="../../css/admin/my-style.css" />
+</head>
+
+<body>
+    <% include header.ejs %>
+    <div class="wrap">
+        <div class="sidebar">
+            <% include sidebar.ejs %>
+        </div>
+        <div class="contentWrap">
+            <form id="specialForm" name="specialForm" method="post" action="" class="specialForm">
+                <input type="text" name="specialDate" id="specialDate" placeholder="特殊值班日期" required="required" class="specialDate" />
+                <input type="text" name="specialTitle" id="specialTitle" placeholder="特殊值班名称" required="required" class="specialTitle" />
+                <input type="submit" name="specialBtn" id="specialBtn" value="添 加" class="specialBtn" />
+            </form>
+            <div class="specialBox">
+                <% if (specialData.length) { %>
+                <% idx = 0 %>
+                <ul class="specialList">
+                    <li>
+                        <div class="specialID">ID</div>
+                        <div>特殊值班日期</div>
+                        <div>特殊值班名称</div>
+                        <div>值班人员</div>
+                        <div>操作</div>
+                    </li>
+                    <% specialData.forEach(function(item) { %>
+                    <% idx++ %>
+                    <li data-id="<%= item._id %>">
+                        <div class="specialID"><%= idx %></div>
+                        <div data-ts="<%= item.specialTime %>" class="itemDate"><%= item.specialTime_fmt %></div>
+                        <div contenteditable="true" class="itemTitle"><%= item.specialTitle %></div>
+                        <div class="itemUsers">
+                            <h2><%= item.specialUsers %></h2>
+                        </div>
+                        <div><span title="删除" class="specialDel"></span></div></li>
+                    <% }) %>
+                </ul>
+                <% } %>
+            </div>
+        </div>
+    </div>
+    <% if (userData.length) { %>
+    <ul id="userList" class="userList">
+        <% userData.forEach(function(item) { %>
+        <li><%= item.userName %></li>
+        <% }) %>
+    </ul>
+    <% } %>
+    <script type="text/javascript" src="../../js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../../js/admin/datedropper.min.js"></script>
+    <script type="text/javascript" src="../../js/admin/special.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <title><%= title %></title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel='stylesheet' href='css/content/index.css' />
+</head>
+
+<body>
+    <div id="login" class="login"><img src="images/content/login.gif?_=<%= (new Date()).getTime() %>" /></div>
+    <div class="headBox">
+        <h1 class="logo"><a href="admin/" target="_blank"><img src="images/content/logo.png" alt="值班啦" /></a></h1>
+        <div class="timeBox">
+            <div id="currentTime">&nbsp;</div>
+            <div id="viewSwitch" class="t1"><span class="cur">月</span><span>年</span></div>
+            <div id="monthBtn" class="t2"><span class="arrLeft"><</span><span class="arrCenter">今天</span><span class="arrRight">></span></div>
+        </div>
+    </div>
+    <div class="yearBox">
+        <div class="sideBar">
+            <h2>个人值班</h2>
+            <% if (data.length) { %>
+            <ul>
+                <% data.forEach(function(item){ %>
+                <li><span><%= item.userName %></span></li>
+                <% }) %>
+            </ul>
+            <% } %>
+        </div>
+        <div class="yearWrap">
+            <div class="yItem">
+                <div class="createNode" data-month="0"></div>
+            </div>
+            <div class="yItem">
+                <div class="createNode" data-month="1"></div>
+            </div>
+            <div class="yItem">
+                <div class="createNode" data-month="2"></div>
+            </div>
+            <div class="yItem">
+                <div class="createNode" data-month="3"></div>
+            </div>
+            <div class="yItem">
+                <div class="createNode" data-month="4"></div>
+            </div>
+            <div class="yItem">
+                <div class="createNode" data-month="5"></div>
+            </div>
+            <div class="yItem">
+                <div class="createNode" data-month="6"></div>
+            </div>
+            <div class="yItem">
+                <div class="createNode" data-month="7"></div>
+            </div>
+            <div class="yItem">
+                <div class="createNode" data-month="8"></div>
+            </div>
+            <div class="yItem">
+                <div class="createNode" data-month="9"></div>
+            </div>
+            <div class="yItem">
+                <div class="createNode" data-month="10"></div>
+            </div>
+            <div class="yItem">
+                <div class="createNode" data-month="11"></div>
+            </div>
+        </div>
+    </div>
+    <div class="monthBox">
+        <div class="monthUnit">
+            <div class="createMonth" data-month="0"></div>
+        </div>
+        <div class="monthUnit">
+            <div class="createMonth" data-month="1"></div>
+        </div>
+        <div class="monthUnit">
+            <div class="createMonth" data-month="2"></div>
+        </div>
+        <div class="monthUnit">
+            <div class="createMonth" data-month="3"></div>
+        </div>
+        <div class="monthUnit">
+            <div class="createMonth" data-month="4"></div>
+        </div>
+        <div class="monthUnit">
+            <div class="createMonth" data-month="5"></div>
+        </div>
+        <div class="monthUnit">
+            <div class="createMonth" data-month="6"></div>
+        </div>
+        <div class="monthUnit">
+            <div class="createMonth" data-month="7"></div>
+        </div>
+        <div class="monthUnit">
+            <div class="createMonth" data-month="8"></div>
+        </div>
+        <div class="monthUnit">
+            <div class="createMonth" data-month="9"></div>
+        </div>
+        <div class="monthUnit">
+            <div class="createMonth" data-month="10"></div>
+        </div>
+        <div class="monthUnit">
+            <div class="createMonth" data-month="11"></div>
+        </div>
+    </div>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/content/index.js"></script>
+</body>
+
+</html>

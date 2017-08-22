@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title><%= targetTitle %> - 值班啦 - 管理系统</title>
+    <link rel="icon" href="../../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
+    <link rel='stylesheet' href='../../css/admin/layout.css' />
+    <link rel='stylesheet' href='../../css/admin/replace.css' />
+</head>
+
+<body>
+    <% include header.ejs %>
+    <div class="wrap">
+        <div class="sidebar">
+            <% include sidebar.ejs %>
+        </div>
+        <div class="contentWrap">
+            <form id="replaceForm" name="replaceForm" method="post" action="" class="replaceForm">
+                <select name="startName" id="startName" class="startName">
+                    <option value="0" select>原值班人员姓名</option>
+                    <% if (usersData.length) { %>
+                        <% usersData.forEach(function(item) { %>
+                    <option value="<%= item.userName %>"><%= item.userName %></option>
+                        <% }) %>
+                    <% } %>
+                </select>
+                <select name="replaceDate" id="replaceDate" class="replaceDate">
+                    <option value="0" select>值班日期</option>
+                </select>
+                <select name="endName" id="endName" class="endName">
+                    <option value="0" select>替值班人员姓名</option>
+                    <% if (usersData.length) { %>
+                        <% usersData.forEach(function(item) { %>
+                    <option value="<%= item.userName %>"><%= item.userName %></option>
+                        <% }) %>
+                    <% } %>
+                </select>
+                <input type="submit" name="replaceBtn" id="replaceBtn" value="添 加" class="replaceBtn" />
+            </form>
+            <div class="replaceBox">
+                <% if (noteData.length) { %>
+                <% idx = 0 %>
+                <ul class="noteList">
+                    <li>
+                        <div class="noteID">ID</div>
+                        <div>值班日期</div>
+                        <div>替值班人</div>
+                        <div>原值班人</div>
+                        <div>操作</div>
+                    </li>
+                    <% noteData.forEach(function(item) { %>
+                    <% idx++ %>
+                    <li data-id="<%= item._id %>">
+                        <div class="noteID"><%= idx %></div>
+                        <div class="date">
+                            <% rotaData.forEach(function(kk) { %>
+                                <% if (kk.name == item.startName && kk.batch == item.batch) {%>
+                                    <%= kk.time_fmt %>
+                                <% } %>
+                            <% }) %>
+                        </div>
+                        <div><%= item.endName %></div>
+                        <div data-batch="<%= item.batch %>" class="elide"><%= item.startName %></div>
+                        <div><span title="删除" class="notelDel"></span></div>
+                    </li>
+                    <% }) %>
+                </ul>
+                <% } %>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="../../js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../../js/admin/replace.js"></script>
+</body>
+
+</html>

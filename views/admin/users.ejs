@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>值班人员管理 - 值班啦 - 管理系统</title>
+    <link rel="icon" href="../../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
+    <link rel='stylesheet' href='../../css/admin/layout.css' />
+    <link rel='stylesheet' href='../../css/admin/users.css' />
+</head>
+
+<body>
+    <% include header.ejs %>
+    <div class="wrap">
+        <div class="sidebar">
+            <% include sidebar.ejs %>
+        </div>
+        <div class="contentWrap">
+            <form id="userForm" name="userForm" method="post" action="" class="userForm">
+                <input type="text" name="userName" id="userName" placeholder="值班人员姓名" required="required" class="userName" />
+                <select name="jobs" id="jobs" class="jobs">
+                    <option value="0" select>岗 位</option>
+                    <option value="设计">设计</option>
+                    <option value="制作">制作</option>
+                </select>
+                <input type="hidden" name="lock" value="false" />
+                <input type="submit" name="userBtn" id="userBtn" value="添 加" class="userBtn" />
+            </form>
+            <div class="userBox">
+                <table cellpadding="0" cellspacing="0" class="usersList" style="display:none;">
+                    <tr>
+                        <th width="10%">ID</th>
+                        <th width="20%">姓名</th>
+                        <th width="20%">岗位</th>
+                        <th width="20%">是否排班</th>
+                        <th width="30%">操作</th>
+                    </tr>
+                <% if (userData.length) { %>
+                    <% idx = 0 %>
+                    <% userData.forEach(function(list){ %>
+                        <% idx++ %>
+                        <tr data-id="<%= list._id %>" class="operation">
+                            <td><%= idx %></td>
+                            <td class="user_name" contenteditable="true"><%= list.userName %></td>
+                            <td class="user_jobs">
+                                <h2><%= list.jobs %></h2>
+                            </td>
+                            <td class="user_lock">
+                                <h2>
+                                <% if(list.lock == "false") { %>
+                                    <%= "是" %>
+                                <% } else { %>
+                                    <%= "否" %>
+                                <% } %>
+                                </h2>
+                            </td>
+                            <td><span title="删除" class="userDel"></span></td>
+                        </tr>
+                    <% }) %>
+                <% } %>
+                </table>
+                <ul class="usersList">
+                    <li>
+                        <div class="userID">ID</div>
+                        <div>姓名</div>
+                        <div>岗位</div>
+                        <div>是否排班</div>
+                        <div>操作</div>
+                    </li>
+                    <% if (userData.length) { %>
+                    <% idx = 0 %>
+                    <% userData.forEach(function(list){ %>
+                    <% idx++ %>
+                    <li data-id="<%= list._id %>">
+                        <div class="userID"><%= idx %></div>
+                        <div class="user_name" contenteditable="true"><%= list.userName %></div>
+                        <div class="user_jobs">
+                            <h2><%= list.jobs %></h2>
+                        </div>
+                        <div class="user_lock">
+                            <h2>
+                            <% if(list.lock == "false") { %>
+                                <%= "是" %>
+                            <% } else { %>
+                                <%= "否" %>
+                            <% } %>
+                            </h2>
+                        </div>
+                        <div><span title="删除" class="userDel"></span></div>
+                    </li>
+                    <% }) %>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="../../js/jquery-3.2.1.min.js"></script>
+    <!-- <script src="../../js/admin/datedropper.min.js"></script> -->
+    <script type="text/javascript" src="../../js/admin/users.js"></script>
+</body>
+
+</html>

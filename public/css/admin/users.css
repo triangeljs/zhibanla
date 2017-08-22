@@ -1,0 +1,29 @@
+.contentWrap { flex-direction: column; }
+.userForm { height: 40px; margin: 40px 50px 20px 50px; }
+.userName { font-size: 14px; line-height: 40px; border: 1px solid #E5E5E5; border-radius: 5px; width: 85px; height: 40px; padding: 0 10px; }
+.jobs { font-size: 14px; color: #999; line-height: 40px; border: 1px solid #E5E5E5; border-radius: 5px; height: 40px; margin-left: 30px; padding-left: 5px; }
+.userBtn { font-size: 14px; color: #FFF; line-height: 40px; background-color: #478FF1; border: none; border-radius: 5px; text-align: center; width: 105px; height: 40px; margin-left: 30px; cursor: pointer; }
+.userBox { margin: 0 50px 50px 50px; flex: 1; }
+
+.usersList { background-color: #FFF; }
+.usersList li { font-size: 14px; line-height: 45px; display: flex; }
+.usersList li:first-child div { font-size: 12px; color: #999; border: none; border: none; }
+.usersList li:nth-child(even) { background-color: #FAFAFA; }
+.usersList li div { border: 1px solid #E5E5E5; text-indent: 50px; margin: 0 -1px -1px 0; flex: 3; }
+.usersList .userID { flex: 1; }
+
+.userDel { background: url(../../images/admin/ico.png) no-repeat center -174px; display: inline-block; width: 16px; height: 16px; cursor: pointer; }
+.userDel:hover { background-position-y: -200px; }
+
+.user_jobs { position: relative; }
+.user_jobs h2 { font-weight: normal; font-size: 14px; }
+
+.user_lock { position: relative; }
+.user_lock h2 { font-weight: normal; font-size: 14px; }
+.user_lock ul { left: 90px; }
+
+.selectTag { background-color: #FFF; border: 5px solid rgba(238,238,238,.8); display: flex; padding: 10px 0; position: absolute; left: 100px; top: -10px; z-index: 999; }
+.selectTag::before { content: ''; background-color: rgba(238,238,238,.8); width: 20px; height: 20px; overflow: hidden; position: absolute; left: -15px; top: 18px; z-index: -100; transform: rotate(45deg); }
+.selectTag li { color: #666; line-height: 40px; background-color: #FFF; text-indent: 0; white-space: nowrap; padding: 0 15px; cursor: pointer; position: relative; z-index: 1; }
+.selectTag li:hover { color: #000; }
+.selectTag li:last-child { background-color: #FFF; border-left: 1px solid #EEE; }

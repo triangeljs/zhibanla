@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title><%= targetTitle %> - 值班啦 - 管理系统</title>
+    <link rel="icon" href="../../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
+    <link rel='stylesheet' href='../../css/admin/layout.css' />
+    <link rel='stylesheet' href='../../css/admin/paiban.css' />
+    <link rel='stylesheet' href='../../css/admin/datedropper.min.css' />
+    <link rel="stylesheet" href="../../css/admin/my-style.css" /> 
+</head>
+
+<body>
+    <% include header.ejs %>
+    <div class="wrap">
+        <div class="sidebar">
+            <% include sidebar.ejs %>
+        </div>
+        <div class="contentWrap">
+            <form id="paibanForm" name="paibanForm" method="post" action="" class="paibanForm" onsubmit="return validate_form()">
+                <input type="text" name="paibanDate" id="paibanDate" placeholder="选择开始排班日期" required="required" class="paibanDate" />
+                <input type="submit" name="paibanBtn" id="paibanBtn" value="生成" class="paibanBtn" />
+            </form>
+            <% if (data.length) { %>
+            <% idx = 0 %>
+            <ul class="paibanList">
+                <li><span class="paibanID">ID</span><span>值班名称</span><span>值班人员</span><span>值班时间</span></li>
+                <% data.forEach(function(list) { %>
+                <% idx++ %>
+                <li><span class="paibanID"><%= idx %></span><span><%= list.title %></span><span><%= list.name %></span><span><%= list.time_fmt %></span></li>
+                <% }) %>
+            </ul>
+             <% } %>
+        </div>
+    </div>
+    <script type="text/javascript" src="../../js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../../js/admin/datedropper.min.js"></script>
+    <script type="text/javascript" src="../../js/admin/paiban.js"></script>
+</body>
+
+</html>

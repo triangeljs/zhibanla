@@ -1,0 +1,17 @@
+.contentWrap { flex-direction: column; }
+.replaceForm { height: 40px; margin: 40px 50px 20px 50px; }
+.replaceBox { margin: 0 50px 50px 50px; flex: 1; }
+
+.startName, .replaceDate, .endName { font-size: 14px; color: #999; border: 1px solid #E5E5E5; border-radius: 5px; height: 40px; padding-left: 5px; }
+.replaceDate, .endName { margin-left: 30px; }
+.replaceBtn { font-size: 14px; color: #FFF; line-height: 40px; background-color: #478FF1; border: none; border-radius: 5px; text-align: center; width: 105px; height: 40px; margin-left: 30px; cursor: pointer; }
+
+.noteList { background-color: #FFF; }
+.noteList li { font-size: 14px; line-height: 45px; display: flex; }
+.noteList li:first-child div { font-size: 12px; color: #999; border: none; border: none; }
+.noteList li:nth-child(even) { background-color: #FAFAFA; }
+.noteList li div { border: 1px solid #E5E5E5; text-indent: 50px; margin: 0 -1px -1px 0; flex: 3; }
+.noteList .noteID { flex: 1; }
+.noteList .notelDel { background: url(../../images/admin/ico.png) no-repeat center -174px; border: none; display: inline-block; width: 16px; height: 16px; cursor: pointer; }
+.notelDel:hover { background-position-y: -200px; }
+.elide { color: #999; text-decoration: line-through; }

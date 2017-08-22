@@ -1,0 +1,4 @@
+.statistical { background-color: #FFF; box-sizing: border-box; flex: 1; margin: 40px 50px; display: flex; flex-direction: column; align-items: stretch; }
+.statisticalWrap { margin-top: 10px; flex: 1; }
+
+.data { display: none; }

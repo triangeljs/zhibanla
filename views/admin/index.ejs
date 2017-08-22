@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>值班啦 - 管理系统</title>
+    <link rel="icon" href="../../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
+    <link rel='stylesheet' href='../../css/admin/layout.css' />
+    <link rel='stylesheet' href='../../css/admin/index.css' />
+</head>
+<body>
+    <% include header.ejs %>
+    <div class="wrap">
+        <div class="sidebar">
+            <% include sidebar.ejs %>
+        </div>
+        <div class="contentWrap">
+            <div class="statistical">
+                <div id="main" class="statisticalWrap"></div>
+            </div>
+        </div>
+    </div>
+    <div class="data">
+        <p id="usersData"><%= users %></p>
+        <p id="zhoumoData"><%= zhoumo %></p>
+        <p id="jieriData"><%= jieri %></p>
+        <p id="shijianData"><%= shijian %></p>
+    </div>
+    <script type="text/javascript" src="../../js/admin/echarts.js"></script>
+    <script type="text/javascript" src="../../js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../../js/admin/index.js"></script>
+</body>
+</body>
+</html>
